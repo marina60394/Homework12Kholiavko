@@ -32,6 +32,7 @@ public class ProductPage extends AbstractPage {
      * Click to button Add to Cart
      */
     public void clickToButtonAddToCart() {
+        testClass.waitTillElementIsVisible(buttonAddToCart);
         buttonAddToCart.click();
     }
 

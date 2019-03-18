@@ -91,12 +91,21 @@ public class BaseTest {
     }
 
     /**
-     * Wait till Loadet isn't present
+     * Wait till text to be present in Element value
      */
-    public void waitTilltextToBePresentInElementValue(String locator, int expectedValue) {
+    public void waitTillTextToBePresentInElementValue(String locator, int expectedValue) {
         wait.until(
                 ExpectedConditions.textToBePresentInElementValue(
                         By.xpath(locator), String.valueOf(expectedValue)));
+    }
+
+    /**
+     * Wait till Element is Present
+     *
+     * @param locator
+     */
+    public void waitTillElementIsPresent(String locator) {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
     }
 
     /**

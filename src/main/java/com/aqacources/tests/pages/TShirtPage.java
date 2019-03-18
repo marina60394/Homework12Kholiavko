@@ -25,7 +25,10 @@ public class TShirtPage extends AbstractPage {
      *
      * @return new instance of Product page
      */
-    public ProductPage clicktoProduct(String productName) {
+    public ProductPage clickToProduct(String productName) {
+        testClass.waitTillElementIsVisible(
+                testClass.getDriver().findElement(By.xpath(String.format(PRODUCT_DETAILS, productName))));
+
         testClass
                 .getDriver()
                 .findElement(By.xpath(String.format(PRODUCT_DETAILS, productName)))

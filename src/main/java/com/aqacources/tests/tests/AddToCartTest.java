@@ -42,7 +42,7 @@ public class AddToCartTest extends BaseTest {
     @When("He clicks to product '([^\\\"]*)' sees Product Page")
     public void heClicksToProductSeesProductPage(String productName) {
 
-        productPage = tShirtPage.clicktoProduct(productName);
+        productPage = tShirtPage.clickToProduct(productName);
     }
 
     @Then("Breadcrumb on Product Page is '([^\\\"]*)'")
@@ -79,7 +79,7 @@ public class AddToCartTest extends BaseTest {
     }
 
     @Then("He sees cart is Empty")
-    public void heSeesCasrIsEmprty() {
+    public void heSeesCasrIsEmpty() {
         checkoutPage.checkEmptyCart();
     }
 

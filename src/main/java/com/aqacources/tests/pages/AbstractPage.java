@@ -20,15 +20,6 @@ public class AbstractPage {
     @FindBy(xpath = "//div[@id='page']")
     protected WebElement divPage;
 
-    @FindBy(xpath = "//div[@class='header_user_info']/a[@class='logout']")
-    private WebElement logOut;
-
-    @FindBy(
-            xpath =
-                    "//ul[@class='sf-menu clearfix menu-content sf-js-enabled sf-arrows']/li/a[@title='Dresses']"
-    )
-    private WebElement menuDresses;
-
     @FindBy(
             xpath =
                     "//ul[@class='sf-menu clearfix menu-content sf-js-enabled sf-arrows']/li/a[@title='T-shirts']"
@@ -36,7 +27,7 @@ public class AbstractPage {
     private WebElement menuTShirts;
 
     @FindBy(xpath = "//div[@class='product-container']")
-    private WebElement productCOntainer;
+    private WebElement productContainer;
 
     @FindBy(xpath = "//div[@class='breadcrumb clearfix']")
     private WebElement breadcrumb;
@@ -77,13 +68,6 @@ public class AbstractPage {
         return currentPageURL;
     }
 
-    /**
-     * Click Log Out
-     */
-    public void logOut() {
-        logOut.click();
-    }
-
 
     /**
      * Click to menu T-shirt
@@ -102,6 +86,7 @@ public class AbstractPage {
      * @param expectedBreadcrumbs
      */
     public void checkBreadrumb(String expectedBreadcrumbs) {
+        testClass.waitTillElementIsVisible(breadcrumb);
         String breadcrumbs = breadcrumb.getAttribute("innerText");
 
         String actualBreadCrumbs = breadcrumbs.replace(" > ", "").replace(">", " ");

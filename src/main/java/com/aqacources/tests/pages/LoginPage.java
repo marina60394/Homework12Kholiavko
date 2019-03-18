@@ -40,6 +40,10 @@ public class LoginPage extends AbstractPage {
      * @return new instance of MyAccountPage
      */
     public MyAccoutPage signIn(String login, String password) {
+        testClass.waitTillElementIsVisible(fieldLogin);
+        testClass.waitTillElementIsVisible(fieldPassword);
+        testClass.waitTillElementIsVisible(submitButton);
+
         fieldLogin.sendKeys(login);
         fieldPassword.sendKeys(password);
         submitButton.click();
