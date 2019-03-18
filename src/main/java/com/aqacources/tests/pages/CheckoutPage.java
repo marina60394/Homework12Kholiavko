@@ -76,8 +76,8 @@ public class CheckoutPage extends AbstractPage {
     /**
      * check total price is the same productPrice*quantity
      */
-    public void checkTotalPrice() {
-        testClass.waitTillElementIsVisible(totalPrice);
+    public void checkTotalPrice(float total, float unitPrice, int quantity) {
+        testClass.waitTillElementIsVisible(productPrice);
         testClass.waitTillElementIsVisible(totalPrice);
 
         // get product price
@@ -89,17 +89,18 @@ public class CheckoutPage extends AbstractPage {
         // get quantity of products
         String productQuantityValue = productQuantity.getAttribute("value").toString();
 
-        float prQuantity = Integer.parseInt(productQuantityValue);
+        int prQuantity = Integer.parseInt(productQuantityValue);
 
         float productPrice = Float.parseFloat(productPriceText);
 
         float amountTotalPrice = Float.parseFloat(totalPriceText);
 
-        // count total amount
-        float checkTotalPrice = productPrice * prQuantity;
+        // check total amount
+        Assert.assertEquals(total, amountTotalPrice, DELTA);
 
-        // check total amount and productPrice*quantity
-        Assert.assertEquals(amountTotalPrice, checkTotalPrice, DELTA);
+        // check that toal price is productPrice*quantity
+        Assert.assertEquals(unitPrice * quantity, productPrice * prQuantity, DELTA);
+
     }
 
     /**

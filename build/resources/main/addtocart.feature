@@ -11,7 +11,7 @@ Scenario: Use Home Links
             When He clicks to button Add to Cart
                       When He clicks to Proceed to Checkout
                       When He clicks to increase quantity
-                      Then Total Price is the result of multiply quantity and price
+                      Then Total Price 33.02 is the result of multiply quantity and price 16.51 * 2
                       When He deletes product
                       Then He sees cart is Empty
                       Then User closes browser

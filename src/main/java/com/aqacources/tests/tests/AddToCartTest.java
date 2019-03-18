@@ -68,9 +68,9 @@ public class AddToCartTest extends BaseTest {
         checkoutPage.clickToIncreaseQuantity();
     }
 
-    @Then("Total Price is the result of multiply quantity and price")
-    public void totalPriceIsTheResultOfMultiplyQuantity() {
-        checkoutPage.checkTotalPrice();
+    @Then("Total Price {float} is the result of multiply quantity and price {float} * {int}")
+    public void totalPriceIsTheResultOfMultiplyQuantity(float totalPrice, float productPrice, int quantity) {
+        checkoutPage.checkTotalPrice(totalPrice, productPrice, quantity);
     }
 
     @When("He deletes product")
